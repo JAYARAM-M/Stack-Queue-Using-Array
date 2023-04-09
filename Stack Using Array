@@ -1,0 +1,54 @@
+#include<stdio.h>
+#include<stdlib.h>
+int stack[5];
+int top=-1;
+int n=5;
+void push()
+{
+    int item;
+    printf("enter the data:\n");
+    scanf("%d",&item);
+    if(top==n-1)
+    {
+        printf("stack overflow");
+        return;
+    }
+    top++;
+    stack[top]=item;
+    printf("push performed");
+}
+int pop()
+{
+    int temp;
+    if(top==-1)
+    {
+        printf("stack underflow");
+        return 0;
+    }
+    temp=stack[top];
+    top=top-1;
+    printf("deletion performed");
+    return temp;
+    
+}
+
+void print()
+{
+    while(top!=-1)
+    {
+        printf("%d",stack[top]);
+        top=top-1;
+    }
+}
+int main()
+{
+//printf("enter the size of stack::\n");
+//scanf("%d",&n);
+   push();
+   push();
+   push();
+   push();
+   pop();
+   print();
+   
+}
