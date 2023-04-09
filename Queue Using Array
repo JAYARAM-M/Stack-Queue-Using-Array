@@ -1,0 +1,72 @@
+#include<stdio.h>
+#include<stdlib.h>
+int queue[5];
+int front=0,rear=0;
+int n=5;
+void enque()
+{
+    rear=(rear+1)%n;
+    if(front==rear)
+    {
+        printf("queue is full");
+         if(rear==0)
+        {
+        rear=n-1;
+        //printf("rear:%d",rear);
+        }
+        return;
+    }
+    int item;
+    printf("enter the data:\n");
+    scanf("%d",&item);
+    queue[rear]=item;
+    printf("enque performed");
+   
+}
+int dequeue()
+{
+    int temp;
+    if(front==rear)
+    {
+        printf("queue is empty");
+        return 0;
+    }
+    front=(front+1)%n;
+    printf("dequeue is performed");
+    return queue[front];
+}
+
+/*void print()
+{
+    while(top!=-1)
+    {
+        printf("%d",stack[top]);
+        top=top-1;
+    }
+}*/
+int main()
+{
+//printf("enter the size of stack::\n");
+//scanf("%d",&n);
+   enque();
+   enque();
+   enque();
+   enque();
+   enque();
+   dequeue();
+   //print();
+   
+}
+
+
+O/P::::::::::::::
+enter the data:
+1
+enque performedenter the data:
+2
+enque performedenter the data:
+3
+enque performedenter the data:
+4
+enque performedqueue is full
+dequeue is performed
